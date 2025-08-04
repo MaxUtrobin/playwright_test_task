@@ -19,6 +19,6 @@ def test_add_task_with_priority(add_task_page, priority_level):
     page.add_task_description()
     page.add_task_priority(priority_level)
     page.save_task()
-    page.select_task(page.task_title_obj)
+    page.select_task(page.title)
 
     assert page.assert_task_priority(priority_level)
