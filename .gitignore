@@ -1,0 +1,33 @@
+# ─── Virtual Environment ─────────────────────────────────────────────────────────
+venv/
+ENV/
+env/
+
+# ─── Python bytecode & caches ────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ─── Pytest ───────────────────────────────────────────────────────────────────────
+.pytest_cache/
+cache/
+
+# ─── Playwright ─────────────────────────────────────────────────────────────────
+playwright-report/
+test-results/
+ms-playwright/
+
+# ─── IDE / Editor ────────────────────────────────────────────────────────────────
+# PyCharm
+.idea/
+# VSCode
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Logs
+*.log
+
+# Optional: lock files, databases, etc.
+*.sqlite3

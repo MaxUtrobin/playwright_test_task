@@ -1,0 +1,7 @@
+CREATE_TASK_BUTTON = '//div[@data-testid="project-view"]//button[contains(., "Add task")]'
+ADD_TASK_TITLE = '//div[@aria-label="Task name"]'
+ADD_TASK_DESCRIPTION = '//div[@aria-label="Description"]'
+PRIORITY_OPTION = '//span[@class="priority_picker_item_name" and normalize-space() = "Priority {}"]'
+SELECT_TASK = '//div[@class="task_content" and contains(., "{}")]'
+PRIORITY_BUTTON = '//div[@data-action-hint="task-actions-priority-picker"]'
+SAVE_TASK_BUTTON = '//button[@data-testid="task-editor-submit-button"]'
