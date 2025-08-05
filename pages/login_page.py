@@ -3,6 +3,7 @@ from playwright.sync_api import Page, expect
 from locators.locators import CREATE_TASK_BUTTON
 from utils.utils import BASE_URL
 
+
 class LoginPage:
     def __init__(self, page: Page):
         self.page = page

@@ -5,6 +5,7 @@ from utils.utils import TODOIST_API_BASE, USER_EMAIL, USER_PASSWORD
 
 logger = get_logger()
 
+
 class TodoistAPIClient:
     def __init__(self):
         self.email = USER_EMAIL
@@ -18,7 +19,7 @@ class TodoistAPIClient:
             "email": self.email,
             "password": self.password,
             "web_session": True,
-            "permanent_login": True
+            "permanent_login": True,
         }
         response = requests.post(url, json=payload)
         response.raise_for_status()
@@ -37,7 +38,9 @@ class TodoistAPIClient:
 
     def delete_task(self, task_id):
         logger.info(f"Deleting task {task_id}")
-        response = requests.delete(f"{TODOIST_API_BASE}/tasks/{task_id}", headers=self.get_headers())
+        response = requests.delete(
+            f"{TODOIST_API_BASE}/tasks/{task_id}", headers=self.get_headers()
+        )
         if response.status_code == 204:
             logger.info(f"Task `{task_id}` is deleted successfully")
         else:

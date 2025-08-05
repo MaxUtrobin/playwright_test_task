@@ -15,6 +15,7 @@ def playwright_browser():
         yield browser
         browser.close()
 
+
 @pytest.fixture
 def page(playwright_browser):
     context = playwright_browser.new_context()
@@ -30,15 +31,13 @@ def login_page(page):
     login.login(USER_EMAIL, USER_PASSWORD)
     return login
 
+
 @pytest.fixture
 def add_task_page(page, task_title_fixture, login_page):
 
     add_task = AddTaskPage(
-        page,
-        title=task_title_fixture,
-        description=task_title_fixture
+        page, title=task_title_fixture, description=task_title_fixture
     )
-    add_task.navigate()
 
     yield add_task
 
@@ -49,8 +48,10 @@ def add_task_page(page, task_title_fixture, login_page):
         if task["content"].startswith("TASK_"):
             client.delete_task(task["id"])
 
+
 @pytest.fixture
 def task_title_fixture():
     import random
+
     task_title = f"TASK_{random.randint(0, 99)}"
     yield task_title

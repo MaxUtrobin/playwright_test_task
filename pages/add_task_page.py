@@ -1,8 +1,15 @@
 from playwright.sync_api import Page
 
 from utils.utils import BASE_URL
-from locators.locators import CREATE_TASK_BUTTON, ADD_TASK_TITLE, ADD_TASK_DESCRIPTION, PRIORITY_OPTION, SELECT_TASK, \
-    PRIORITY_BUTTON, SAVE_TASK_BUTTON
+from locators.locators import (
+    CREATE_TASK_BUTTON,
+    ADD_TASK_TITLE,
+    ADD_TASK_DESCRIPTION,
+    PRIORITY_OPTION,
+    SELECT_TASK,
+    PRIORITY_BUTTON,
+    SAVE_TASK_BUTTON,
+)
 
 
 class AddTaskPage:
@@ -16,6 +23,15 @@ class AddTaskPage:
 
     def navigate(self):
         self.page.goto(f"{BASE_URL}/app/inbox")
+
+    def create_task(self, priority_level: int, task_name: str):
+        self.page.goto(f"{BASE_URL}/app/inbox")
+        self.click_add_task()
+        self.add_task_title()
+        self.add_task_description()
+        self.add_task_priority(priority_level)
+        self.save_task()
+        self.select_task(task_name)
 
     def click_add_task(self):
         self.page.locator(CREATE_TASK_BUTTON).click()
@@ -40,4 +56,6 @@ class AddTaskPage:
         self.page.locator(SELECT_TASK.format(task_name)).click()
 
     def assert_task_priority(self, task_priority):
-        return self.page.locator(f'//div[@aria-label="Priority"]//span[contains(., "P{task_priority}")]')
+        return self.page.locator(
+            f'//div[@aria-label="Priority"]//span[contains(., "P{task_priority}")]'
+        )

@@ -9,6 +9,6 @@ USER_PASSWORD = os.getenv("USER_PASSWORD", "")
 if not USER_EMAIL or not USER_PASSWORD:
     raise RuntimeError(
         "Please set USER_EMAIL and USER_PASSWORD before running tests:\n"
-        "  export USER_EMAIL=\"your.email@example.com\"\n"
-        "  export USER_PASSWORD=\"supersecret\"\n"
+        '  export USER_EMAIL="your.email@example.com"\n'
+        '  export USER_PASSWORD="supersecret"\n'
     )
